@@ -1,4 +1,4 @@
-# LaTeX Beamer Template
+# XeLaTeX Beamer Template
 
 ## build
 
