@@ -1,0 +1,11 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\beamer@endinputifotherversion {3.33pt}
+\defcounter {refsection}{0}\relax 
+\select@language {german}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{Einführung}{3}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {3}{Hauptteil}{4}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {4}{Zusammenfassung}{5}{0}{3}
