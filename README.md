@@ -20,3 +20,15 @@
 
 - script that initializes the presentation with given values for title, author etc.
 
+---
+
+![](page-01.png)
+![](page-02.png)
+![](page-03.png)
+![](page-04.png)
+![](page-05.png)
+![](page-06.png)
+![](page-07.png)
+![](page-08.png)
+![](page-09.png)
+![](page-10.png)
