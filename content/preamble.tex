@@ -11,14 +11,41 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathrsfs}   % \mathscr
+\usepackage{stmaryrd}   % \lightning
 
 % other
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 \usepackage{csquotes}
 
+% colors
+\usepackage{xcolor}
+\usepackage{colortbl}
+% https://kuler.adobe.com/Happy-Hipster-color-theme-3096435/
+\definecolor{colora}{HTML}{555555}
+\definecolor{colorb}{HTML}{7BB38E}
+\definecolor{colorc}{HTML}{F4F1D7}
+\definecolor{colord}{HTML}{F8AB65}
+\definecolor{colore}{HTML}{F15C4C}
+\definecolor{colorf}{HTML}{EFEFEF}
+
 \usepackage{hyperref}
-\hypersetup{hidelinks, colorlinks=true}
+\hypersetup{
+    hidelinks,
+    colorlinks=true,
+    % color of internal links (change box color with linkbordercolor)
+    linkcolor=colore,
+    % color of links to bibliography
+    citecolor=colorb,
+    % color of file links
+    filecolor=magenta,
+    % color of external links
+    urlcolor=red,
+    % meta
+    pdfauthor={\presentationAuthor},
+    pdftitle={\presentationTitle}
+}
 \usepackage[german]{cleveref}
 \usepackage{blindtext}
 
@@ -32,13 +59,12 @@
 \input{glossary}
 \makeglossaries
 
-%graphics
+% graphics
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, shadows, positioning}
 
 % Style settings
-
 \usepackage{adjustbox}
 \Crefname{lstlisting}{Listing}{Listings}
 \crefname{lstlisting}{listing}{listings}
@@ -63,13 +89,7 @@
 \usetheme{Pittsburgh}
 
 \usecolortheme{default}
-% https://kuler.adobe.com/Happy-Hipster-color-theme-3096435/
-\definecolor{colora}{HTML}{555555}
-\definecolor{colorb}{HTML}{7BB38E}
-\definecolor{colorc}{HTML}{F4F1D7}
-\definecolor{colord}{HTML}{F8AB65}
-\definecolor{colore}{HTML}{F15C4C}
-\definecolor{colorf}{HTML}{EFEFEF}
+
 
 \setbeamercolor{title}{fg=colore}
 \setbeamercolor{subtitle}{fg=colora}
@@ -82,6 +102,11 @@
 \setbeamercolor{block body example}{bg=colorf}
 \setbeamercolor{block body alerted}{bg=colorf}
 \setbeamercolor{alerted text}{fg=colore}
+
+\setbeamercolor{palette primary}{fg=colora, bg=colorc}
+\setbeamercolor{palette secondary}{fg=colora, bg=colorc}
+\setbeamercolor{palette tertiary}{fg=colora, bg=colorc}
+\setbeamercolor{palette quaternary}{fg=colora, bg=colorc}
 
 \useinnertheme{rectangles}
 \useoutertheme{infolines}
