@@ -9,3 +9,18 @@ $$
 \end{aligned}
 $$
 \end{frame}
+
+% http://en.wikibooks.org/wiki/LaTeX/Presentations#Blocks
+\begin{frame}{Example of columns 2}
+     \begin{columns}[T]
+        % contents are top vertically aligned
+         \begin{column}[T]{5cm}
+            % each column can also be its own environment
+            \lipsum[66]
+         \end{column}
+         \begin{column}[T]{5cm}
+            % alternative top-align that's better for graphics
+            \includegraphics[width=\textwidth]{resources/plot.png}
+         \end{column}
+     \end{columns}
+\end{frame}
