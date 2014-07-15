@@ -1,19 +1,17 @@
-\documentclass[professionalfonts, 12pt]{beamer}
+% t top-aligned, c centered
+\documentclass[professionalfonts, 12pt, t]{beamer}
 
-\input{variables}
-\input{meta}
-\input{preamble}
+\input{misc/variables}
+\input{misc/meta}
+\input{misc/preamble}
 
 \begin{document}
-    \begin{frame}[plain]
-        \titlepage
-    \end{frame}
-
+    \invertedtitleframe{}
     \section*{\contentsname}
     \begin{frame}{\contentsname}
         \tableofcontents
     \end{frame}
 
-    \input{presentation_structure}
-
+    \input{example}
+    %\input{presentation_structure}
 \end{document}

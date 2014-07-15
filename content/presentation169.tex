@@ -1,13 +1,11 @@
-\documentclass[aspectratio=169, professionalfonts, 12pt]{beamer}
+\documentclass[aspectratio=169, professionalfonts, 12pt, t]{beamer}
 
-\input{variables}
-\input{meta}
-\input{preamble}
+\input{misc/variables}
+\input{misc/meta}
+\input{misc/preamble}
 
 \begin{document}
-    \begin{frame}[plain]
-        \titlepage
-    \end{frame}
+    \invertedtitleframe{}
 
     \section*{\contentsname}
     \begin{frame}{\contentsname}
@@ -15,5 +13,4 @@
     \end{frame}
 
     \input{presentation_structure}
-
 \end{document}

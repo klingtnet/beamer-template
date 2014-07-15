@@ -1,0 +1,89 @@
+%
+% XeTeX specific
+%
+\RequireXeTeX
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+% math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}   % \mathscr
+\usepackage{stmaryrd}   % \lightning
+
+% other
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+\usepackage{csquotes}
+% underlining
+\usepackage{soul} % ulem redifines \emph, this sucks
+% remove this in "production"
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+% colors
+\usepackage{xcolor}
+\usepackage{colortbl}
+\input{misc/colors}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    % hide bookmarks
+    pdfpagemode=UseNone,
+    % meta
+    pdfauthor={\presentationAuthor},
+    pdftitle={\presentationTitle}
+}
+\usepackage[german]{cleveref}
+\usepackage{blindtext}
+
+\usepackage[
+    backend=biber,
+    style=alphabetic-verb
+    ]{biblatex}
+\bibliography{presentation}
+% remove those ugly beamer bibliography icons
+\setbeamertemplate{bibliography item}{$\blacktriangleright$}
+
+\usepackage{glossaries}
+\input{glossary}
+\makeglossaries
+
+% graphics
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, shadows, positioning}
+
+% Style settings
+\usepackage{adjustbox}
+\Crefname{lstlisting}{Listing}{Listings}
+\crefname{lstlisting}{listing}{listings}
+\usepackage{listings}
+\setmonofont[Scale=0.9]{Consolas}
+\lstset{
+    basicstyle=\footnotesize\ttfamily\color{blight},
+    backgroundcolor=\color{fog},
+    numbers=left,
+    %numbersep=4pt,
+    numberstyle=\scriptsize\color{gray},
+    commentstyle=\sffamily\itshape\color{turquoise},
+    keywordstyle=\bfseries\color{keyword},
+    stringstyle=\itshape\color{lightgreen},
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    %frame=tblr,
+    %framerule=0pt,
+    %framesep=12pt
+    captionpos=t
+}
+
+\input{misc/javascript}
+%\input{misc/html5}
+
+% include style definition
+\input{misc/klingt_net}

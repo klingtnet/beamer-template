@@ -1,0 +1,341 @@
+\section{Einführung}
+
+\begin{frame}{Formale Systeme \& Widerspruchsfreiheit}
+    \begin{block}{formales System}
+        Ein System welches Regeln enthält, mit deren Hilfe sich mathematische Aussagen beweisen lassen und mit denen aus bereits bewiesenen Aussagen neue Aussagen abgeleitet werden können.
+    \end{block}
+    \begin{block}{widerspruchsfrei}
+        \begin{itemize}
+            \item $A$ Aussage
+            \item $T$ formales System
+        \end{itemize}
+        $$\neg\exists A: T\rightarrow{}A \wedge T\rightarrow{}\neg{}A $$
+    \end{block}
+\end{frame}
+
+\begin{frame}[squeeze]
+    \begin{block}{Gödelisierung}
+        Berechenbare Zuweisung einer eindeutigen natürlichen Zahl für jedes Wort\footnote{endliche Folgen von Symbolen aus dem Alphabet der formalen Sprache} einer formalen Sprache.
+    \end{block}
+    \begin{block}{Turing-Maschine}
+        \begin{itemize}
+            \item Schreib-Lese-Kopf
+            \item unendlich langes Eingabe-/Ausgabeband
+            \item endliche Menge an Eingabesymbolen und internen Zuständen
+            \item Initial- und Haltezustand
+            \item Zustandsübergangsfunktion $q_{aktuell}, a_{eingabe} \rightarrow{} q_{folge}, a_{ausgabe}, d_{direction}$
+            \item Universelle Turing-Maschine benötigt zusätzlich die Maschinenbeschreibung als Eingabe
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Penroses These}
+\label{sec:penrose}
+\begin{frame}{Penroses These}
+    \begin{itemize}
+        \item in der Mathematik hat unser Denkprozess die reinste Form
+        \item falls das Denken bloß die Ausführung einer Berechnung ist, dann sollte man dies am deutlichsten in der Mathematik sehen
+        \item erstaunlicherweise zeigt sich genau das Gegenteil
+        \item \emph{Der menschliche Denkprozess ist nicht algorithmisierbar}
+        \item[$\hookrightarrow$] nicht durch eine (universelle) Turing-Maschine simulierbar
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Gödelscher Unvollständigkeitssatz}
+        Kein formelles System aus widerspruchsfreien mathematischen Regeln kann jemals ausreichen, alle wahren Aussagen der klassischen Arithmetik zu beweisen. M. a. W. es gibt immer Aussagen in dem System die wahr aber unbeweisbar sind.
+    \end{block}
+    \begin{itemize}
+        \item Arithmetik für den Menschen durch Intuition und Verstand begreifbar, aber nicht durch ein formelles System
+        \item Indirekter Beweis m. H. des \emph{Unvollständigkeitssatzes} und des \emph{Halteproblems}
+        \item Annahme es gibt ein formales System welches das menschliche Denken beschreibt
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Penrose verwendet die Begriffe Berechnung und Algorithmus gleichbedeutend
+        \item Algorithmus entspricht dem Verhalten einer Turing-Maschine
+        \item kann nicht nur arithmetische sondern auch logische Operationen zur Ableitung neuer Aussagen verwenden
+        %\item später im Beweis: Algorithmus der entscheidet ob ein gegebener Alg. für eine bestimmte Eingabe hält
+        \item zeigt \enquote{visuellen Beweis} als Unterstützung seiner These, dass der menschliche Verstand nicht berechenbare Methoden verwendet
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Penroses Beispiel für \enquote{visuellen Beweis}}
+\label{sec:visual_proof}
+    \begin{block}{Fragestellung}
+        Finde eine Summe von aufeinanderfolgenden Hexagonal-Zahlen, beginnend von 1, welche keine Kubik-Zahl\footnote{$x^3, x \in \mathbb{N}$} ergibt.
+    \end{block}
+    \begin{block}{Reihe von Hexagonal-Zahlen}
+        \[
+            hex(n) =
+            \begin{cases}
+                \sum_{i=1}^{n} hex(i-1) + 6*i ,     & \text{wenn } n > 0, n \in \mathbb{N}\\
+                1                             ,     & \text{wenn } n = 0
+            \end{cases}
+        \]
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+    \item Folge von Hexagonal-Zahlen für $ n \in \{1, 2, 3, 4\} = \{1, 7, 19, 37\}$
+    \item Summen der aufeinanderfolgenden Hexagonalzahlen $\{ 8, 27, 64\} = \{ 2^3, 3^3, 4^3\}$ für $n \in \{2, 3, 4\}$
+\end{itemize}
+\end{frame}
+
+\section{Penroses Beweis}
+\label{sec:penroses_proof}
+
+\begin{frame}
+    \topskip0pt
+    \vspace*{\fill}
+        \begin{center}
+            \Huge \textbf{Penroses Beweis}
+        \end{center}
+    \vspace*{\fill}
+\end{frame}
+
+\begin{frame}{Penroses Beweis}
+    \begin{itemize}
+        \item $C(n), n \in \mathbb{N}$
+        \item Indizierung aller Algorithmen $C_0, C_1, C_2 \ldots C_q$
+        \begin{itemize}
+            \item Jeder Algorithmus ist durch eine Turing-Maschine ausführbar
+            \item Jede Turing-Maschine kann durch eine Zeichenkette beschrieben werden
+            \item Zeichenketten sind indizierbar (z.B. durch Gödelisierung)
+        \end{itemize}
+        \item Angenommen es exisitert ein Algorithmus $A$ der ausgibt ob $C_q(n)$ hält
+        \item $A$ beinhaltet dabei alle Methoden mathematischer Beweisführung (um zu überprüfen das eine Berechnung nicht hält)
+        \item Wenn $A(q,n)$ hält, dann hält $C_q(n)$ \textbf{nicht}
+        \item $A$ muss nicht immer entscheiden können das $C_q(n)$ hält, aber er liefert auch keine falschen Antworten, d.h. er ist \emph{widerspruchsfrei}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Gödel-Turing Satz $\mathscr{G}$}
+    \begin{itemize}
+        \item[a)] $q=n$: wenn $A(n,n)$ hält, dann hält $C_n(n)$ nicht % Cantor Diagonalisierung
+        \item[b)] $A(n,n)=C_k(n), k \in \{0, \ldots q\}$\\
+\vspace{3mm}
+\begin{tabular}{l|p{8mm}p{8mm}p{8mm}p{8mm}p{8mm}p{8mm}p{8mm}}
+$A$     & 0 & 1 & \ldots & k & \dots & $n-1$ & $n$\\
+\hline
+$C_0$   & \cellcolor{colorb} & & & & & & \\
+$C_1$   & & \cellcolor{colorb} & & & & & \\
+\ldots  & & & \cellcolor{colorb} & & & & \\
+\rowcolor{colorb}
+$C_k$   & & & & \cellcolor{colore} & & & \\
+\ldots  & & & & & \cellcolor{colorb} & & \\
+$C_{n-1}$ & & & & & & \cellcolor{colorb} & \\
+$C_n$   & & & & & & & \cellcolor{colorb}
+\end{tabular}
+\vspace{3mm}
+        \item[c)] für $n=k: A(k,k) = C_k(k)$
+        \item[d)] wenn $A(k,k)$ hält, dann hält $C_k(k)$ nicht
+        \item[e)] \emph{c)} in \emph{d)} einsetzen: wenn $C_k(k)$ hält, dann hält $C_k(k)$ nicht $\lightning$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Wenn $A$ widerspruchsfrei ist, dann wissen wir das $C_k(k)$ nicht hält und somit wissen wir etwas was $A$ nicht beweisen kann.
+        \item[$\rightarrow$] $A$ kann unseren Verstand nicht abbilden
+        \item $\mathscr{G}$: Mathematiker nutzen keinen bekannten widerspruchsfreien Algorithmus für mathematische Beweise
+    \end{itemize}
+\end{frame}
+
+%
+% McCullough
+%
+
+\section{Kritik von Daryl McCullough}
+\label{sec:critic_mccullough}
+
+\begin{frame}
+    \topskip0pt
+    \vspace*{\fill}
+        \begin{center}
+            \Huge \textbf{Kritik von Daryl McCullough}
+        \end{center}
+    \vspace*{\fill}
+\end{frame}
+
+\begin{frame}{Kritik von Daryl McCullough \cite{mccullough1995can}}
+    \begin{itemize}
+        \item Penrose gibt kein direktes Argument für seine These
+        \item er zeigt keine konkrete Aufgabe die ein Mensch ausführen kann aber ein Computer nicht (Folie~\pageref{sec:visual_proof})
+        \item stattdessen indirekter Beweis unter der Annahme es existiert \enquote{Programm} welches genauso intelligent wie ein Mensch ist
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Penroses Argument}
+\label{sec:penrose_argument}
+    \begin{itemize}
+        \item Penroses Denkvermögen wird durch ein formales System $F$ beschrieben
+        \item dies bedeutet das jede in $F$ beweisbare Aussage $S$ für Penrose wahr ist ($F$ widerspruchsfrei)
+        \item $S$ ist also ein Satz (Theorem) von $F$ und umgekehrt
+        \item Annahme: Penrose weiss das $F$ seinen Verstand beschreibt\\
+        $\hookrightarrow$ dies zieht\textemdash{}gemäß Penrose\textemdash{}den Glaube in die Widerspruchsfreiheit von $F$ nach sich
+        \item Aufgrund des \emph{Unvollständigkeitssatzes} ist $G(F)$ eine wahre Aussage aber kein Satz von $F$
+        \item Da Penrose an die Widerspruchsfreiheit von $F$ glaubt, muss er folgern das $G(F)$ wahr ist
+        \item[$\lightning$] Da $G(F)$ nicht in $F$ enthalten ist, widerspricht dies der Annahme das $F$ sein Denkvermögen vollständig beschreibt
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Uneindeutigkeit in der Bedeutung von $F$}
+        Mögliche Interpretationen des formalen Systems $F$:
+        \begin{enumerate}
+            \item $F$ stellt das \emph{angeborene Denkvermögen} dar
+            \item es stellt das Denkvermögen zu einem bestimmten \emph{Zeitpunkt} dar, einschließlich des empirischen Wissens
+            \item $F$ beinhaltet \emph{jegliches} erreichbare Wissen, obgleich durch Schlussfolgerung oder Empirie
+        \end{enumerate}
+    \end{block}
+    \begin{itemize}
+        \item Uneindeutigkeit von $F$ entscheident bei der Frage ob der Mathematiker weiss das sein Denkvermögen durch $F$ beschrieben wird (z. B. falls diese Erkenntnis durch empirisches Wissen erzeugt wird)
+        \item Penrose umgeht dieses Problem indem er ein $F^{\,'}$ einführt, was $F$ sowie alles was sich aus dem Bewusstsein durch $F$ beschrieben zu sein ableiten lässt, enthält
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Für $\mathscr{G}$ getroffene Annahmen}
+        \begin{itemize}
+            \item[a)] Logisches Denken ist \emph{widerspruchsfrei}
+            \item[b)] \emph{a)} ist \emph{unzweifelhaft wahr}
+        \end{itemize}
+    \end{block}
+    \begin{itemize}
+        \item $\mathscr{G}$ beweist \emph{nicht}, dass das menschliche Denkvermögen nicht berechenbar ist, sondern, falls es algorithmisierbar ist, zeigt es:
+        \begin{itemize}
+            \item[a)] das es widersprüchlich ist
+            \item[b)] das es unmöglich für uns ist, gleichzeitig unser Urteilsvermögen ($F$) zu kennen und zu wissen ob es widerspruchsfrei ist
+        \end{itemize}
+        \item Penrose behauptet:
+        \enquote{
+            Falls wir einen Algorithmus $F$ kennen der unser Denkvermögen beschreibt, dann sind wir gezwungen dessen Widerspruchsfreiheit zu folgern.
+        }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lässt sich $\mathscr{G}$ auf Menschen anwenden?}
+    \begin{itemize}
+        \item Penroses Argumente bedingen die Fähigkeit bestimmte \emph{zweifelsfreie Wahrheiten} zu erkennen
+        \item eine falsche Aussage darf nicht als \emph{zweifelsfrei wahr} bewertet werden, diese Tatsache ist aber \emph{widerlegbar}
+    \end{itemize}
+    \begin{block}{Quick and Dirty (selbstbezogene Aussage)}
+    \label{sec:quick_and_dirty}
+        \begin{itemize}
+            \item $G$: \enquote{Dieser Satz ist keine Überzeugung von Roger Penrose}
+            \item $G \in Penrose \rightarrow G: falsch$
+            \item Umgekehrt, wenn Penroses Überzeugungen widerspruchsfrei sind, dann $G \not\in Penrose \rightarrow G: wahr$.
+            \item[$\lightning$] Wenn Penrose glaubt seine Überzeugenen wären widerspruchsfrei, sind sie es tatsächlich nicht.
+        \end{itemize}
+    \end{block}
+\end{frame}
+\begin{frame}
+    \begin{block}{Formeller (Paradoxon)}
+    \[ F(x): \mathbb{N} \rightarrow \mathbb{N}, x \in \mathbb{N} \]
+    \[ F(x) =
+        \begin{cases}
+            G(x)+1, & \text{wenn } x = code(G), G: \mathbb{N} \rightarrow \mathbb{N}\\
+            0,      & \text{sonst}
+        \end{cases}
+    \]
+    \[ N = code(F) \]
+    \[ F(N) \stackrel{\lightning}{=} F(N)+1 \]
+    \[ \hookrightarrow F(N) = 0 \]
+    \end{block}
+    \begin{itemize}
+        \item Paradoxon zeigt das die Idee einer \emph{eindeutigen Definition} selbst nicht \emph{eindeutig} sein kann
+        \item Gleichermaßen kann die Idee einer \emph{zweifelsfreien Wahrheit} selbt nicht \emph{zweifelsfrei} sein
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}{Schlussfolgerung ohne Selbstbezug}
+%     ein $G$ konstruieren, das genau dann hält wenn wenn es nicht \emph{zweifelsfrei wahr} ist
+%     \begin{itemize}
+%         \item $P(x)$ hält, wenn die durch $x$ kodierte Aussage \emph{zweifelsfrei wahr} ist
+%         \item $G$ welches wahr ist, aber von dem wir nicht glauben das es \emph{unzweifelhaft wahr} ist
+%         \item Nach Penroses Prinzipien sind wir gezwungen an unsere eigene Widerspruchsfreiheit zu glauben, woraus folgt das wir keine andere Wahl haben als daraus zu schließen das $G$ wahr ist
+%         \item dies widerspricht der Definition von $G$
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{Gedankenexperiment}
+    \begin{itemize}
+        \item Gegeben seien zwei Tasten für die Antwortmöglichkeiten \textbf{Ja} und \textbf{Nein}
+        \item die Testperson soll die entsprechende Taste als Antwort auf eine Entscheidungsfrage betätigen
+        \item \enquote{Werden Sie die \emph{Nein}-Taste betätigen?}
+        \item[$\rightarrow$] Keine korrekte Antwort auf die Frage möglich
+        \item die Testperson kann ihr Wissen nicht mitteilen und ist somit nicht widerspruchsfrei
+        \item Wenn man Schlüsse aus seiner eigenen Widerspruchsfreiheit ableitet führt dies zu einem Fehler
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{McCulloughs Fazit}
+    \begin{itemize}
+        \item Penroses Argument das unser Denkvermögen nicht formalisierbar ist, ist (in gewissen Sinne) korrekt
+        \item kein Problem des formalen Systems sondern eine implizite Beschränkung unserer Fähigkeit über unser eigenes Denkvermögen Schlüsse zu folgern
+        \item bis zu dem Punkt an dem wir unser eigenes logisches Denken verstehen, können wir uns über dessen Widerspruchsfreiheit nicht sicher sein
+        \item Andersherum, bis zu dem Punkt an dem wir wissen das wir widerspruchsfrei sind, können wir unser logisches Denken nicht formalisieren
+        \item[$\hookrightarrow$] Diese Einschränkung besitzt jedes System was in der Lage ist über sich selbst zu schlussfolgern
+    \end{itemize}
+\end{frame}
+
+%
+% Penroses Antwort
+%
+
+\section{Penroses Antwort}
+\label{sec:penrose_answer}
+
+\begin{frame}
+    \topskip0pt
+    \vspace*{\fill}
+        \begin{center}
+            \Huge \textbf{Penroses Antwort}
+        \end{center}
+    \vspace*{\fill}
+\end{frame}
+
+\begin{frame}{Penroses Antwort \cite{penrose1996beyond}}
+    \begin{block}{Wiederholung}
+        \begin{itemize}
+            \item Annahme: \enquote{die Gesamtheit aller Methoden der mathematischen Beweisführung können in einem (nicht notwendigerweise berechenbaren) widerspruchsfreien formalen System $F$ gebündelt werden}
+        \end{itemize}
+    \end{block}
+    \begin{itemize}
+        \item[a)] Wenn ich erkenne das ich $F$ wäre, dann müsste $F$ widerspruchsfrei sein und insbesondere $F^{\,'}$ ($F+\text{\enquote{Ich bin F}}$)
+        \item[b)] Also müsste auch $G(F^{\,'})$ wahr sein
+        \item[$\lightning$] \emph{b)} Erkenntnis außerhalb der Fähigkeit von $F^{\,'}$ $\hookrightarrow$ somit kann ich nicht durch $F$ beschrieben sein
+        \item Penrose hat \enquote{stärkere} Form des Beweises gezeigt (ohne die Annahme zu wissen von $F$ beschrieben worden zu sein)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item MC kritisiert das sich $G$ nicht nur auf \enquote{berechenbare} $F$ anwenden lässt
+        \item Penrose zeigt genau dies in Abschnitt 7.9
+        \item wichtiger noch, die Fähigkeiten von $F$ (Schlüsse über sich selbst zu ziehen) müssen eingeschränkt sein, da ansonsten Widersprüche auftreten\footnote{Einschränkung wird nicht konkret benannt}
+        \item MC benutzt eine solche paradoxe Beweisführung (siehe Folie~\pageref{sec:quick_and_dirty})
+    \end{itemize}
+\end{frame}
+
+\section{Ein bisschen Code}
+\subsection{Größter gemeinsamer Teiler}
+\begin{frame}[fragile]
+    \begin{block}{gcd in python}
+        \begin{lstlisting}[language=python]
+# greatest common denominator
+def gcd(a, b):
+    """Calculate the Greatest Common Divisor of a and b.
+
+    Unless b==0, the result will have the same sign as b (so that when b is divided by it, the result comes out positive).
+    """
+    while b:
+        a, b = b, a%b
+    return a
+        \end{lstlisting}
+    \end{block}
+\end{frame}

@@ -1,0 +1,150 @@
+% mathserif option of beamer class is deprecated, use this:
+\usefonttheme[onlymath]{serif}
+\usetheme{default}
+% hide beamer navigation buttons -- love this command :)
+\beamertemplatenavigationsymbolsempty
+
+% font settings
+\setsansfont{Linux Biolinum}
+\setromanfont{Linux Libertine}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{headline}{family=\rmfamily}
+\setbeamerfont{frametitle}{family=\rmfamily}
+\setbeamerfont{block title}{shape=\itshape}
+\setbeamerfont{block body}{family=\rmfamily}
+\setbeamerfont{block body example}{family=\rmfamily}
+\setbeamerfont{block body alerted}{family=\rmfamily}
+% enumeration item font
+\setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+
+% color definitions
+\setbeamercolor{headline}{fg=grass, bg=darkblue}
+\setbeamercolor{frametitle}{fg=blight, bg=darkblue!20!white}
+% \setbeamercolor{titlelike}{fg=title}
+% \setbeamercolor{subtitle}{fg=subtitle}
+% \setbeamercolor{institute}{fg=gray}
+\setbeamercolor{block title}{fg=fog, bg=darkblue}
+\setbeamercolor{block title example}{fg=fog, bg=darkgreen}
+\setbeamercolor{block title alerted}{fg=fog, bg=red}
+\setbeamercolor{block body}{fg=blight, bg=fog}
+\setbeamercolor{block body example}{fg=blight, bg=fog}
+\setbeamercolor{block body alerted}{fg=blight, bg=fog}
+%\setbeamercolor{section in head/foot}{fg=hilight, bg=background}
+%\setbeamercolor{local structure}{fg=foreground}
+%\setbeamercolor{normal text}{fg=red}
+% \setbeamercolor{alerted text}{fg=colore}
+% \setbeamercolor{item projected}{fg=red,bg=background}
+% \setbeamercolor{section in sidebar}{fg=red}
+% \setbeamercolor{section in sidebar shaded}{fg=red}
+% \setbeamercolor{fine separation line}{}
+% \setbeamercolor{separation line}{fg=red}
+% \setbeamercolor{sidebar}{fg=red}
+% \setbeamercolor{structure}{fg=red}
+% \setbeamercolor{subsection in sidebar}{fg=red}
+% \setbeamercolor{subsection in sidebar shaded}{fg=red}
+% \setbeamercolor{palette primary}{fg=colora, bg=colorc}
+% \setbeamercolor{palette secondary}{fg=colora, bg=colorc}
+% \setbeamercolor{palette tertiary}{fg=colora, bg=colorc}
+% \setbeamercolor{palette quaternary}{fg=colora, bg=colorc}
+
+% change itemize symbols
+\setbeamertemplate{itemize item}{\footnotesize\raise1pt\hbox{$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{$\vartriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1pt\hbox{$\bullet$}}
+
+% http://tex.stackexchange.com/questions/38208/beamer-create-own-headline-theme
+%
+% !!! Commented linebreaks are necessary !!!
+%
+\setbeamertemplate{headline}
+{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=5.7ex,dp=2.2ex]{headline}%
+            \raggedright\hspace*{2em}%
+            {%
+                \ifx\insertsubsection\empty
+                    \raise1pt\hbox{\normalsize\thesection.\enspace\insertsection}%
+                \else
+                    \raise1pt\hbox{\normalsize\thesection.{\footnotesize\thesubsection}.\enspace\normalsize\insertsubsection}%
+                \fi
+                \hfill%
+                {%
+                    \Large\textsuperscript{\insertframenumber{}}\hspace{-1pt}\color{gray}/\hspace{-2pt}\textsubscript{\inserttotalframenumber{}}
+                }%
+            }%
+            \hspace*{2em}%
+        \end{beamercolorbox}%
+    }%
+}
+
+% custom frame title
+\setbeamertemplate{frametitle}
+{
+    \vskip-6pt
+    \leavevmode
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth, ht=1.3ex, dp=0.5ex]{frametitle}%
+            \centering
+            {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\footnotesize\insertframetitle}%
+        \end{beamercolorbox}
+    }%
+}
+\setbeamertemplate{footline}{}
+
+% define the meta stuff for the titelframe
+\title[\shortTitle]{\presentationTitle{}}
+\subtitle{\presentationSubtitle}
+\institute[]{
+    {\large \textsc{\university{}}}
+    \par\medskip
+    {\normalsize \textit{\universityDepartment{}} \textemdash{} \universityCourse{}}
+}
+\author[\presentationAuthorShort]{\presentationAuthor}
+\titlegraphic{\includegraphics[width=30mm]{resources/logo}} % logo
+\date{\today}
+\subject{\presentationSubject}
+\keywords{\presentationKeywords{}}
+
+% customized titleframe layout
+\defbeamertemplate*{title page}{customized}[1][]
+{
+    \par
+    \begin{center}
+        {\usebeamerfont{title}\usebeamercolor[fg]{titlelike}\inserttitle\par}
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
+        %\par\bigskip
+        \par\bigskip
+        \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+        \par\bigskip
+        \usebeamercolor[fg]{normal text}
+        \usebeamerfont{institute}\insertinstitute
+        \par\bigskip
+        \hrule
+        \par\bigskip
+        {
+            \usebeamercolor[fg]{normal text}
+            \small
+            \usebeamerfont{author}\textbf{\insertauthor{}}
+            \par\smallskip
+            \usebeamerfont{date}\insertdate
+        }
+        \par
+    \end{center}
+}
+
+% hack to make the hyperref style more customizable
+% \smash reduces the space between the underline and the word
+\newcommand{\link}[2]{\color{sunset}\underline{\smash{\href{#1}{\color{blight}#2}}}}
+
+% inverts the background and text color only for the titleframe
+\newcommand{\invertedtitleframe}
+{
+    % \setbeamercolor{background canvas}{bg=blight, fg=fog}
+    % \setbeamercolor{normal text}{fg=fog}
+    \begin{frame}[plain, c]
+        \titlepage
+    \end{frame}
+%     \setbeamercolor{normal text}{fg=blight}
+%     \setbeamercolor{background canvas}{bg=white}
+}
