@@ -1,3 +1,8 @@
+% the latex (beamer) resources:
+%   - tex.stackexchange.com
+%   - ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+%   - http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+
 % mathserif option of beamer class is deprecated, use this:
 \usefonttheme[onlymath]{serif}
 \usetheme{default}
@@ -8,14 +13,12 @@
 \setsansfont{Linux Biolinum}
 \setromanfont{Linux Libertine}
 \setbeamerfont{title}{series=\bfseries}
-\setbeamerfont{headline}{family=\rmfamily}
+\setbeamerfont{headline}{family=\sffamily}
 \setbeamerfont{frametitle}{family=\rmfamily}
-\setbeamerfont{block title}{shape=\itshape}
-\setbeamerfont{block body}{family=\rmfamily}
-\setbeamerfont{block body example}{family=\rmfamily}
-\setbeamerfont{block body alerted}{family=\rmfamily}
-% enumeration item font
-\setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+\setbeamerfont{block title}{family=\rmfamily,shape=\itshape,size=\normalsize}
+\setbeamerfont{block body}{family=\sffamily}
+\setbeamerfont{block body example}{family=\sffamily}
+\setbeamerfont{block body alerted}{family=\sffamily}
 
 % color definitions
 \setbeamercolor{headline}{fg=grass, bg=darkblue}
@@ -29,9 +32,9 @@
 \setbeamercolor{block body}{fg=blight, bg=fog}
 \setbeamercolor{block body example}{fg=blight, bg=fog}
 \setbeamercolor{block body alerted}{fg=blight, bg=fog}
-%\setbeamercolor{section in head/foot}{fg=hilight, bg=background}
-%\setbeamercolor{local structure}{fg=foreground}
-%\setbeamercolor{normal text}{fg=red}
+% \setbeamercolor{section in head/foot}{fg=hilight, bg=background}
+% \setbeamercolor{local structure}{fg=foreground}
+% \setbeamercolor{normal text}{fg=red}
 % \setbeamercolor{alerted text}{fg=colore}
 % \setbeamercolor{item projected}{fg=red,bg=background}
 % \setbeamercolor{section in sidebar}{fg=red}
@@ -51,6 +54,14 @@
 \setbeamertemplate{itemize item}{\footnotesize\raise1pt\hbox{$\blacktriangleright$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{$\vartriangleright$}}
 \setbeamertemplate{itemize subsubitem}{\tiny\raise1pt\hbox{$\bullet$}}
+% enumeration items
+\setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+
+% table of contents
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+% \setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+% subsubsection should'nt been used in a presentation in the first place
 
 % http://tex.stackexchange.com/questions/38208/beamer-create-own-headline-theme
 %
@@ -70,7 +81,11 @@
                 \fi
                 \hfill%
                 {%
-                    \Large\textsuperscript{\insertframenumber{}}\hspace{-1pt}\color{gray}/\hspace{-2pt}\textsubscript{\inserttotalframenumber{}}
+                    \normalsize%
+                    \raise1pt\hbox{%
+                        \raise2pt\hbox{\insertframenumber}\color{gray}{/}%
+                        \raise-2pt\hbox{\inserttotalframenumber}
+                    }
                 }%
             }%
             \hspace*{2em}%
@@ -106,36 +121,50 @@
 \subject{\presentationSubject}
 \keywords{\presentationKeywords{}}
 
-% customized titleframe layout
+% customized title page layout
 \defbeamertemplate*{title page}{customized}[1][]
 {
+    \centering
     \par
-    \begin{center}
-        {\usebeamerfont{title}\usebeamercolor[fg]{titlelike}\inserttitle\par}
-        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
-        %\par\bigskip
+    \usebeamercolor[fg]{normal text}
+    \usebeamerfont{institute}\insertinstitute\par
+    %\resizebox{!}{2cm}{\inserttitlegraphic}
+    \vfill
+    \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    {
+        \par\smallskip
+        \usebeamerfont{title}{\hfill\inserttitle\hfill}
         \par\bigskip
-        \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
-        \par\bigskip
+    }
+    \end{beamercolorbox}
+    \vskip-2pt
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+        \par\smallskip
+        \usebeamerfont{subtitle}{\hfill\insertsubtitle\hfill}
+        \par\medskip
+    \end{beamercolorbox}
+    \vfill
+    {
         \usebeamercolor[fg]{normal text}
-        \usebeamerfont{institute}\insertinstitute
-        \par\bigskip
-        \hrule
-        \par\bigskip
-        {
-            \usebeamercolor[fg]{normal text}
-            \small
-            \usebeamerfont{author}\textbf{\insertauthor{}}
-            \par\smallskip
-            \usebeamerfont{date}\insertdate
-        }
+        \small
+        \usebeamerfont{author}\textbf{\insertauthor{}}
         \par
-    \end{center}
+        \href{mailto:\presentationAuthorEmail}{\presentationAuthorEmail}
+        \par
+        \adforn{45}
+        \par\medskip
+        \usebeamerfont{date}\insertdate
+    }
+    \par
 }
 
 % hack to make the hyperref style more customizable
 % \smash reduces the space between the underline and the word
-\newcommand{\link}[2]{\color{sunset}\underline{\smash{\href{#1}{\color{blight}#2}}}}
+\newcommand{\link}[2]{%
+    {\color{sunset}\underline{%
+        \smash{\href{#1}{\color{blight}#2}}}
+    }
+}
 
 % inverts the background and text color only for the titleframe
 \newcommand{\invertedtitleframe}
