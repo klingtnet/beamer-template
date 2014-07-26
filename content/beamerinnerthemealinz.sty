@@ -1,9 +1,17 @@
 \mode<presentation>
 
+% -----------------------------------
+% font config
+% -----------------------------------
+
 \setbeamerfont{title}{series=\bfseries}
 \setbeamerfont{block body}{family=\sffamily}
 \setbeamerfont{block body example}{family=\sffamily}
 \setbeamerfont{block body alerted}{family=\sffamily}
+
+% -----------------------------------
+% title page
+% -----------------------------------
 
 % define the meta stuff for the titelframe
 \title[\shortTitle]{\presentationTitle{}}
@@ -56,17 +64,26 @@
     \par
 }
 
-% change itemize symbols
+% -----------------------------------
+% enumerations and itemize
+% -----------------------------------
+
 \setbeamertemplate{itemize item}{\footnotesize\raise1pt\hbox{$\blacktriangleright$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{$\vartriangleright$}}
 \setbeamertemplate{itemize subsubitem}{\tiny\raise1pt\hbox{$\bullet$}}
-% enumeration items
 \setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+
+% -----------------------------------
+% bibliography
+% -----------------------------------
 
 % remove those ugly beamer bibliography icons
 \setbeamertemplate{bibliography item}{$\blacktriangleright$}
 
+% -----------------------------------
 % table of contents
+% -----------------------------------
+
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
 % \setbeamertemplate{subsubsection in toc}[subsubsections numbered]

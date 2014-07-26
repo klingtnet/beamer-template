@@ -6,11 +6,17 @@
 \usepackage{fontspec}
 \usepackage{xunicode}
 
-% font settings
+% -----------------------------------
+% font config
+% -----------------------------------
+
 \setsansfont{Linux Biolinum}
 \setromanfont{Linux Libertine}
 
+% -----------------------------------
 % math
+% -----------------------------------
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -18,20 +24,27 @@
 \usepackage{mathrsfs}   % \mathscr
 \usepackage{stmaryrd}   % \lightning
 
-% other
+% -----------------------------------
+% grammar and textstyle
+% -----------------------------------
+
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 \usepackage{csquotes}
 % underlining
 \usepackage{soul} % ulem redifines \emph, this sucks
-% remove this in "production"
-\usepackage{lipsum}
-\usepackage{blindtext}
 
+% -----------------------------------
 % colors
+% -----------------------------------
+
 \usepackage{xcolor}
 \usepackage{colortbl}
 \input{misc/colors}
+
+% -----------------------------------
+% links and references
+% -----------------------------------
 
 \usepackage{hyperref}
 \hypersetup{
@@ -43,7 +56,10 @@
     pdftitle={\presentationTitle}
 }
 \usepackage[german]{cleveref}
-\usepackage{blindtext}
+
+% -----------------------------------
+% bibliography and glossaries
+% -----------------------------------
 
 \usepackage[
     backend=biber,
@@ -51,18 +67,23 @@
     ]{biblatex}
 \bibliography{presentation}
 
-
 \usepackage{glossaries}
 \input{glossary}
 \makeglossaries
 
+% -----------------------------------
 % graphics
+% -----------------------------------
+
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows, shadows, positioning}
-\usepackage{adforn} % ornaments
+\usepackage{adforn} % ornaments, used in titlepage
 
-% Style settings
+% -----------------------------------
+% listings and pseudocode
+% -----------------------------------
+
 \usepackage{adjustbox}
 \Crefname{lstlisting}{Listing}{Listings}
 \crefname{lstlisting}{listing}{listings}
@@ -90,6 +111,10 @@
 
 \input{misc/javascript}
 %\input{misc/html5}
+
+% -----------------------------------
+% beamer theme
+% -----------------------------------
 
 % you can't locate the theme in a subfolder without shooting yourself in the knee
 \usetheme{alinz}
