@@ -37,3 +37,7 @@ Currently im writing a completly new template, so the readme will be updated soo
 ![](page-24.png)
 ![](page-25.png)
 ![](page-26.png)
+![](page-27.png)
+![](page-28.png)
+![](page-29.png)
+![](page-30.png)
