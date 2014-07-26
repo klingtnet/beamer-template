@@ -21,26 +21,56 @@
 \definecolor{lightdark}{RGB}{33,33,33}
 \definecolor{fog}{RGB}{245,245,245}
 
+% https://kuler.adobe.com/Early-Winter-Morning-color-theme-1725919/edit/?copy=true
+\definecolor{granite}{RGB}{47,56,55}
+\definecolor{marble}{RGB}{197,199,182}
+\definecolor{eggshell}{RGB}{255,248,211}
+\definecolor{terra}{RGB}{76,73,62}
+\definecolor{night}{RGB}{34,32,40}
+
+% based on https://kuler.adobe.com/Bras%C3%A3o---Prefeitura-Municipal-de-Itabirito-color-theme-4155415/edit/?copy=true
+\definecolor{slime}{RGB}{35,216,32}
+\definecolor{egg}{RGB}{255,203,4}
+\definecolor{raspberry}{RGB}{205,19,55}
+\definecolor{lake}{RGB}{0,104,168}
+%\definecolor{}{RGB}{}
+
+% -----------------------------------
+% color aliases
+% -----------------------------------
+
+%\colorlet{alias}{existing}
+\colorlet{titlebg}{night}
+\colorlet{titlefg}{fog}
+\colorlet{blocktitlefg}{fog}
+\colorlet{blockbg}{fog!94!black}
+\colorlet{frametitlebg}{marble!50!fog}
+\colorlet{enumfg}{lake}
+\colorlet{itemfg}{lake}
+\colorlet{sectionintocfg}{lake}
+\colorlet{alertfg}{raspberry}
+
 % -----------------------------------
 % color usage
 % -----------------------------------
 
-\setbeamercolor{headline}{fg=grass, bg=darkblue}
-\setbeamercolor{frametitle}{fg=lightdark, bg=darkblue!20!white}
-\setbeamercolor{footline}{fg=grass, bg=darkblue}
+\setbeamercolor{titlepage-headline}{fg=fog, bg=night}
+
+\setbeamercolor{headline}{fg=titlefg, bg=titlebg}
+\setbeamercolor{frametitle}{fg=stonecoal!50!black, bg=frametitlebg}
+% \setbeamercolor{footline}{fg=grass, bg=titlebg}
 % \setbeamercolor{titlelike}{fg=title}
 % \setbeamercolor{subtitle}{fg=subtitle}
-% \setbeamercolor{institute}{fg=gray}
-\setbeamercolor{block title}{fg=fog, bg=sea}
-\setbeamercolor{block title example}{fg=fog, bg=darkgreen}
-\setbeamercolor{block title alerted}{fg=fog, bg=red}
-\setbeamercolor{block body}{fg=lightdark, bg=fog}
-\setbeamercolor{block body example}{fg=lightdark, bg=fog}
-\setbeamercolor{block body alerted}{fg=lightdark, bg=fog}
+\setbeamercolor{institute}{fg=stonecoal}
+\setbeamercolor{block title}{fg=blocktitlefg, bg=titlebg}
+\setbeamercolor{block title example}{fg=blocktitlefg, bg=slime}
+\setbeamercolor{block title alerted}{fg=blocktitlefg, bg=raspberry}
+\setbeamercolor{block body}{fg=lightdark, bg=blockbg}
+\setbeamercolor{block body example}{fg=lightdark, bg=blockbg}
+\setbeamercolor{block body alerted}{fg=lightdark, bg=blockbg}
 % \setbeamercolor{section in head/foot}{fg=hilight, bg=background}
 % \setbeamercolor{local structure}{fg=foreground}
 % \setbeamercolor{normal text}{fg=red}
-% \setbeamercolor{alerted text}{fg=colore}
 % \setbeamercolor{item projected}{fg=red,bg=background}
 % \setbeamercolor{section in sidebar}{fg=red}
 % \setbeamercolor{section in sidebar shaded}{fg=red}
@@ -54,18 +84,18 @@
 % \setbeamercolor{palette secondary}{fg=colora, bg=colorc}
 % \setbeamercolor{palette tertiary}{fg=colora, bg=colorc}
 % \setbeamercolor{palette quaternary}{fg=colora, bg=colorc}
-\setbeamercolor{alerted text}{fg=red}
-\setbeamercolor{itemize item}{fg=lightgreen}
-\setbeamercolor{itemize subitem}{fg=darkgreen}
-\setbeamercolor{itemize subsubitem}{fg=darkgreen}
-\setbeamercolor{enumerate item}{fg=lightgreen}
-\setbeamercolor{enumerate subitem}{fg=darkgreen}
-\setbeamercolor{enumerate subsubitem}{fg=darkgreen}
-\setbeamercolor{section in toc}{fg=stonecoal}
-\setbeamercolor{subsection in toc}{fg=darkgreen}
-\setbeamercolor{subsubsection in toc}{fg=lightgreen}
-\setbeamercolor{bibliography item}{fg=lightgreen}
-\setbeamercolor{bibliography entry author}{fg=lightgreen}
+\setbeamercolor{alerted text}{fg=alertfg}
+\setbeamercolor{itemize item}{fg=enumfg}
+\setbeamercolor{itemize subitem}{fg=enumfg!65!black}
+\setbeamercolor{itemize subsubitem}{fg=enumfg!30!black}
+\setbeamercolor{enumerate item}{fg=enumfg}
+\setbeamercolor{enumerate subitem}{fg=enumfg!65!black}
+\setbeamercolor{enumerate subsubitem}{fg=enumfg!30!black}
+\setbeamercolor{section in toc}{fg=sectionintocfg}
+\setbeamercolor{subsection in toc}{fg=sectionintocfg!65!black}
+\setbeamercolor{subsubsection in toc}{fg=sectionintocfg!30!black}
+\setbeamercolor{bibliography item}{fg=enumfg}
+\setbeamercolor{bibliography entry author}{fg=sea}
 \setbeamercolor{bibliography entry title}{fg=sea}
 \setbeamercolor{bibliography entry location}{fg=stonecoal}
 \setbeamercolor{bibliography entry note}{fg=stonecoal}

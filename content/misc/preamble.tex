@@ -89,6 +89,13 @@
 \usepackage{adforn} % ornaments, used in titlepage
 
 % -----------------------------------
+% beamer theme
+% -----------------------------------
+
+% you can't locate the theme in a subfolder without shooting yourself in the knee
+\usetheme{alinz}
+
+% -----------------------------------
 % listings and pseudocode
 % -----------------------------------
 
@@ -98,19 +105,19 @@
 \usepackage{listings}
 \lstset{
     basicstyle=\footnotesize\ttfamily\color{lightdark},
-    backgroundcolor=\color{fog},
+    backgroundcolor=\color{blockbg},
     numbers=left,
-    %numbersep=4pt,
-    numberstyle=\scriptsize\color{gray},
-    commentstyle=\sffamily\itshape\color{turquoise},
-    keywordstyle=\bfseries\color{keyword},
-    stringstyle=\itshape\color{lightgreen},
+    %numbersep=6pt,
+    numberstyle=\scriptsize\color{granite},
+    commentstyle=\sffamily\itshape\color{sea},
+    keywordstyle=\bfseries\color{raspberry},
+    stringstyle=\itshape\color{lake},
     showstringspaces=false,
     breaklines=true,
     breakatwhitespace=true,
-    %frame=tblr,
-    %framerule=0pt,
-    %framesep=12pt
+    frame=lr,
+    framerule=0pt,
+    framesep=6pt,
     captionpos=b
 }
 % for pseudocode
@@ -118,10 +125,3 @@
 
 \input{misc/javascript}
 %\input{misc/html5}
-
-% -----------------------------------
-% beamer theme
-% -----------------------------------
-
-% you can't locate the theme in a subfolder without shooting yourself in the knee
-\usetheme{alinz}
