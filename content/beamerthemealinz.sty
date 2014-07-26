@@ -1,0 +1,44 @@
+% the latex (beamer) resources:
+%   - tex.stackexchange.com
+%   - ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+%   - http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+
+\mode<presentation>
+
+% Requirement
+% \RequirePackage{tikz}
+
+% Settings
+\useinnertheme{alinz}
+\useoutertheme{alinz}
+\usecolortheme{alinz}
+
+\usefonttheme[onlymath]{serif}
+\beamertemplatenavigationsymbolsempty
+
+% -----------------------------------
+% custom commands
+% -----------------------------------
+
+% hack to make the hyperref style more customizable
+% \smash reduces the space between the underline and the word
+\newcommand{\link}[2]{%
+    {\color{sunset}\underline{%
+        \smash{\href{#1}{\color{blight}#2}}}
+    }
+}
+
+% plain frame with centered message
+% http://tex.stackexchange.com/questions/2326/vertically-center-text-on-a-page
+\newcommand{\plaintextframe}[1]{
+\begin{frame}[plain, c]
+    \topskip0pt
+    \vspace*{\fill}
+        \begin{center}
+            \Huge \textbf{#1}
+        \end{center}
+    \vspace*{\fill}
+\end{frame}
+}
+
+\mode<all>

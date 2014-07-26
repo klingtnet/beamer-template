@@ -1,0 +1,53 @@
+\mode<presentation>
+
+\setbeamerfont{headline}{family=\sffamily}
+\setbeamerfont{frametitle}{family=\rmfamily}
+\setbeamerfont{block title}{family=\rmfamily,shape=\itshape,size=\normalsize}
+
+% http://tex.stackexchange.com/questions/38208/beamer-create-own-headline-theme
+%
+% !!! Commented linebreaks are necessary !!!
+%
+\setbeamertemplate{headline}
+{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=5.7ex,dp=2.2ex]{headline}%
+            \raggedright\hspace*{2em}%
+            {%
+                \ifx\insertsubsection\empty
+                    \raise1pt\hbox{\normalsize\thesection.\enspace\insertsection}%
+                \else
+                    \raise1pt\hbox{\normalsize\thesection.{\footnotesize\thesubsection}.\enspace\normalsize\insertsubsection}%
+                \fi
+                \hfill%
+                {%
+                    \normalsize%
+                    \raise1pt\hbox{%
+                        \raise2pt\hbox{\insertframenumber}\color{gray}{/}%
+                        \raise-2pt\hbox{\inserttotalframenumber}
+                    }
+                }%
+            }%
+            \hspace*{2em}%
+        \end{beamercolorbox}%
+    }%
+}
+
+% custom frame title
+\setbeamertemplate{frametitle}
+{
+    \vskip-5pt
+    \leavevmode
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth, ht=1.3ex, dp=0.5ex]{frametitle}%
+            \centering
+            {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\footnotesize\insertframetitle}%
+        \end{beamercolorbox}
+    }%
+}
+
+% remove footline
+\setbeamertemplate{footline}{}
+
+\mode<all>

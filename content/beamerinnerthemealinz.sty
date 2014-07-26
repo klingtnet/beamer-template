@@ -1,0 +1,75 @@
+\mode<presentation>
+
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{block body}{family=\sffamily}
+\setbeamerfont{block body example}{family=\sffamily}
+\setbeamerfont{block body alerted}{family=\sffamily}
+
+% define the meta stuff for the titelframe
+\title[\shortTitle]{\presentationTitle{}}
+\subtitle{\presentationSubtitle}
+\institute[]{
+    {\large \textsc{\university{}}}
+    \par\medskip
+    {\normalsize \textit{\universityDepartment{}} \textemdash{} \universityCourse{}}
+}
+\author[\presentationAuthorShort]{\presentationAuthor}
+\titlegraphic{\includegraphics[width=30mm]{resources/logo}} % logo
+\date{\today}
+\subject{\presentationSubject}
+\keywords{\presentationKeywords{}}
+
+% customized title page layout
+\defbeamertemplate*{title page}{customized}[1][]
+{
+    \centering
+    \par
+    \usebeamercolor[fg]{normal text}
+    \usebeamerfont{institute}\insertinstitute\par
+    %\resizebox{!}{2cm}{\inserttitlegraphic}
+    \vfill
+    \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    {
+        \par\smallskip
+        \usebeamerfont{title}{\hfill\inserttitle\hfill}
+        \par\bigskip
+    }
+    \end{beamercolorbox}
+    \vskip-2pt
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+        \par\smallskip
+        \usebeamerfont{subtitle}{\hfill\insertsubtitle\hfill}
+        \par\medskip
+    \end{beamercolorbox}
+    \vfill
+    {
+        \usebeamercolor[fg]{normal text}
+        \small
+        \usebeamerfont{author}\textbf{\insertauthor{}}
+        \par
+        \href{mailto:\presentationAuthorEmail}{\presentationAuthorEmail}
+        \par
+        \adforn{45}
+        \par\medskip
+        \usebeamerfont{date}\insertdate
+    }
+    \par
+}
+
+% change itemize symbols
+\setbeamertemplate{itemize item}{\footnotesize\raise1pt\hbox{$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{$\vartriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1pt\hbox{$\bullet$}}
+% enumeration items
+\setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+
+% remove those ugly beamer bibliography icons
+\setbeamertemplate{bibliography item}{$\blacktriangleright$}
+
+% table of contents
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+% \setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+% subsubsection should'nt been used in a presentation in the first place
+
+\mode<all>
