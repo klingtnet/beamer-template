@@ -41,7 +41,14 @@
 
 \usepackage{xcolor}
 \usepackage{colortbl}
-\input{misc/colors}
+
+% listing colors
+% https://kuler.adobe.com/Color-palette-color-theme-4004722
+\definecolor{keyword}{RGB}{239,33,74}
+\definecolor{number}{RGB}{243,202,22}
+\definecolor{comment}{RGB}{126,158,19}
+\definecolor{string}{RGB}{6,129,128}
+
 
 % -----------------------------------
 % links and references
@@ -85,12 +92,12 @@
 % listings and pseudocode
 % -----------------------------------
 
-\usepackage{adjustbox}
 \Crefname{lstlisting}{Listing}{Listings}
 \crefname{lstlisting}{listing}{listings}
+
 \usepackage{listings}
 \lstset{
-    basicstyle=\footnotesize\ttfamily\color{blight},
+    basicstyle=\footnotesize\ttfamily\color{lightdark},
     backgroundcolor=\color{fog},
     numbers=left,
     %numbersep=4pt,
