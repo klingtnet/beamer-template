@@ -26,7 +26,7 @@
 % \setbeamercolor{titlelike}{fg=title}
 % \setbeamercolor{subtitle}{fg=subtitle}
 % \setbeamercolor{institute}{fg=gray}
-\setbeamercolor{block title}{fg=fog, bg=darkblue}
+\setbeamercolor{block title}{fg=fog, bg=sea}
 \setbeamercolor{block title example}{fg=fog, bg=darkgreen}
 \setbeamercolor{block title alerted}{fg=fog, bg=red}
 \setbeamercolor{block body}{fg=blight, bg=fog}
@@ -49,6 +49,21 @@
 % \setbeamercolor{palette secondary}{fg=colora, bg=colorc}
 % \setbeamercolor{palette tertiary}{fg=colora, bg=colorc}
 % \setbeamercolor{palette quaternary}{fg=colora, bg=colorc}
+\setbeamercolor{alerted text}{fg=red}
+\setbeamercolor{itemize item}{fg=lightgreen}
+\setbeamercolor{itemize subitem}{fg=darkgreen}
+\setbeamercolor{itemize subsubitem}{fg=darkgreen}
+\setbeamercolor{enumerate item}{fg=lightgreen}
+\setbeamercolor{enumerate subitem}{fg=darkgreen}
+\setbeamercolor{enumerate subsubitem}{fg=darkgreen}
+\setbeamercolor{section in toc}{fg=lightgreen}
+\setbeamercolor{subsection in toc}{fg=darkgreen}
+\setbeamercolor{subsubsection in toc}{fg=stonecoal}
+\setbeamercolor{bibliography item}{fg=lightgreen}
+\setbeamercolor{bibliography entry author}{fg=lightgreen}
+\setbeamercolor{bibliography entry title}{fg=sea}
+\setbeamercolor{bibliography entry location}{fg=stonecoal}
+\setbeamercolor{bibliography entry note}{fg=stonecoal}
 
 % change itemize symbols
 \setbeamertemplate{itemize item}{\footnotesize\raise1pt\hbox{$\blacktriangleright$}}
@@ -56,6 +71,9 @@
 \setbeamertemplate{itemize subsubitem}{\tiny\raise1pt\hbox{$\bullet$}}
 % enumeration items
 \setbeamertemplate{enumerate item}{\rmfamily\itshape\insertenumlabel.}
+
+% remove those ugly beamer bibliography icons
+\setbeamertemplate{bibliography item}{$\blacktriangleright$}
 
 % table of contents
 \setbeamertemplate{section in toc}[sections numbered]
@@ -96,7 +114,7 @@
 % custom frame title
 \setbeamertemplate{frametitle}
 {
-    \vskip-6pt
+    \vskip-5pt
     \leavevmode
     \hbox{%
         \begin{beamercolorbox}[wd=\paperwidth, ht=1.3ex, dp=0.5ex]{frametitle}%
@@ -176,4 +194,17 @@
     \end{frame}
 %     \setbeamercolor{normal text}{fg=blight}
 %     \setbeamercolor{background canvas}{bg=white}
+}
+
+% plain frame with centered message
+% http://tex.stackexchange.com/questions/2326/vertically-center-text-on-a-page
+\newcommand{\plaintextframe}[1]{
+\begin{frame}[plain, c]
+    \topskip0pt
+    \vspace*{\fill}
+        \begin{center}
+            \Huge \textbf{#1}
+        \end{center}
+    \vspace*{\fill}
+\end{frame}
 }

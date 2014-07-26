@@ -1,3 +1,4 @@
+% t top-aligned, c centered
 \documentclass[aspectratio=169, professionalfonts, 12pt, t]{beamer}
 
 \input{misc/variables}
@@ -8,9 +9,10 @@
     \invertedtitleframe{}
 
     \section*{\contentsname}
-    \begin{frame}{\contentsname}
+    \begin{frame}[allowframebreaks]{\contentsname}
         \tableofcontents
     \end{frame}
 
-    \input{presentation_structure}
+    \input{example}
+    %\input{presentation_structure}
 \end{document}

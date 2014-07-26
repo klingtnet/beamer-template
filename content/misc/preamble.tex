@@ -46,8 +46,7 @@
     style=alphabetic-verb
     ]{biblatex}
 \bibliography{presentation}
-% remove those ugly beamer bibliography icons
-\setbeamertemplate{bibliography item}{$\blacktriangleright$}
+
 
 \usepackage{glossaries}
 \input{glossary}
@@ -80,8 +79,10 @@
     %frame=tblr,
     %framerule=0pt,
     %framesep=12pt
-    captionpos=t
+    captionpos=b
 }
+% for pseudocode
+\usepackage[slide,linesnumbered,algoruled]{algorithm2e}
 
 \input{misc/javascript}
 %\input{misc/html5}

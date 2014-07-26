@@ -88,14 +88,7 @@
 \section{Penroses Beweis}
 \label{sec:penroses_proof}
 
-\begin{frame}
-    \topskip0pt
-    \vspace*{\fill}
-        \begin{center}
-            \Huge \textbf{Penroses Beweis}
-        \end{center}
-    \vspace*{\fill}
-\end{frame}
+\plaintextframe{Penroses Beweis}
 
 \begin{frame}{Penroses Beweis}
     \begin{itemize}
@@ -152,14 +145,7 @@ $C_n$   & & & & & & & \cellcolor{colorb}
 \section{Kritik von Daryl McCullough}
 \label{sec:critic_mccullough}
 
-\begin{frame}
-    \topskip0pt
-    \vspace*{\fill}
-        \begin{center}
-            \Huge \textbf{Kritik von Daryl McCullough}
-        \end{center}
-    \vspace*{\fill}
-\end{frame}
+\plaintextframe{Kritik von Daryl McCullough}
 
 \begin{frame}{Kritik von Daryl McCullough \cite{mccullough1995can}}
     \begin{itemize}
@@ -290,14 +276,7 @@ $C_n$   & & & & & & & \cellcolor{colorb}
 \section{Penroses Antwort}
 \label{sec:penrose_answer}
 
-\begin{frame}
-    \topskip0pt
-    \vspace*{\fill}
-        \begin{center}
-            \Huge \textbf{Penroses Antwort}
-        \end{center}
-    \vspace*{\fill}
-\end{frame}
+\plaintextframe{Penroses Antwort}
 
 \begin{frame}{Penroses Antwort \cite{penrose1996beyond}}
     \begin{block}{Wiederholung}
@@ -325,8 +304,7 @@ $C_n$   & & & & & & & \cellcolor{colorb}
 \section{Ein bisschen Code}
 \subsection{Größter gemeinsamer Teiler}
 \begin{frame}[fragile]
-    \begin{block}{gcd in python}
-        \begin{lstlisting}[language=python]
+    \begin{lstlisting}[language=python,caption=GCD in python3]
 # greatest common denominator
 def gcd(a, b):
     """Calculate the Greatest Common Divisor of a and b.
@@ -336,6 +314,47 @@ def gcd(a, b):
     while b:
         a, b = b, a%b
     return a
-        \end{lstlisting}
-    \end{block}
+    \end{lstlisting}
+\end{frame}
+
+\subsection{Ein Pseudocode Beispiel}
+\begin{frame}
+    \begin{algorithm}[H]
+    \SetAlgoLined
+    \KwResult{Write here the result }
+    initialization\;
+    \While{While condition}{
+        instructions\;
+        \eIf{condition}{
+            instructions1\;
+            instructions2\;
+        }{
+            instructions3\;
+        }
+    }
+     \caption{How to write algorithms}
+    \end{algorithm}
+\end{frame}
+
+\begin{frame}{nested items}
+    \begin{itemize}
+        \item item
+        \begin{itemize}
+            \item subitem
+            \item another subitem
+            \begin{itemize}
+                \item subsubitem one
+                \item second subsubitem
+            \end{itemize}
+        \end{itemize}
+        \item this item ist \alert{alerted}
+    \end{itemize}
+\end{frame}
+
+% http://tex.stackexchange.com/questions/2326/vertically-center-text-on-a-page
+\plaintextframe{Fragen?}
+
+\subsection{Literaturverzeichnis}
+\begin{frame}[allowframebreaks]{Bibliographie}
+    \printbibliography
 \end{frame}

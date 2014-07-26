@@ -2,6 +2,11 @@
 
 Currently im writing a completly new template, so the readme will be updated soon. The previews are up to date.
 
+## todo
+
+- plain frame command
+- convert theme to sty files [read](http://tex.stackexchange.com/questions/146529/design-a-custom-beamer-theme-from-scratch)
+
 ---
 
 ## Preview
