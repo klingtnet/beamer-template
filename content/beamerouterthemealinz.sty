@@ -15,13 +15,13 @@
         \begin{beamercolorbox}[wd=\paperwidth,ht=5.7ex,dp=2.2ex]{headline}%
             \raggedright\hspace*{2em}%
             {%
-            	\ifx\insertsection\empty\relax
-            	\else
-                \ifx\insertsubsection\empty
-                    \raise1pt\hbox{\normalsize\thesection.\enspace\insertsection}%
+                \ifx\insertsection\empty\relax
                 \else
-                    \raise1pt\hbox{\normalsize\thesection.{\footnotesize\thesubsection}.\enspace\normalsize\insertsubsection}%
-                \fi
+                    \ifx\insertsubsection\empty
+                        \raise1pt\hbox{\normalsize\thesection.\enspace\insertsection}%
+                    \else
+                        \raise1pt\hbox{\normalsize\thesection.{\footnotesize\thesubsection}.\enspace\normalsize\insertsubsection}%
+                    \fi
                 \fi
                 \hfill%
                 {%
